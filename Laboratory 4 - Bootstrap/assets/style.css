@@ -1,0 +1,81 @@
+/* Custom Styling for Music Library */
+
+body {
+	background-color: #f8f9fa;
+}
+
+.card {
+	height: 100%;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	border: none;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+	height: 250px;
+	object-fit: cover;
+	border-bottom: 1px solid #eee;
+}
+
+/* Ensure consistent card sizing */
+.col-xl-2 .card-img-top {
+	height: 200px;
+}
+
+.card-body {
+	display: flex;
+	flex-direction: column;
+}
+
+.card-text {
+	flex-grow: 1;
+	color: #666;
+}
+
+/* Modal Styling */
+.modal-title {
+	font-weight: bold;
+}
+
+#modalStats {
+	font-size: 0.9rem;
+	color: #555;
+}
+
+#modalStats h6 {
+	font-weight: bold;
+	color: #333;
+	margin-bottom: 10px;
+}
+
+.table th {
+	background-color: #f1f3f5;
+}
+
+/* Spotify Link Styling */
+.spotify-link {
+	color: #1ed760;
+	text-decoration: none;
+	font-weight: 500;
+	transition: color 0.2s;
+}
+
+.spotify-link:hover {
+	color: #169b45;
+	text-decoration: underline;
+}
+
+/* Footer Button Override */
+.btn-success {
+	background-color: #1ed760;
+	border: none;
+}
+
+.btn-success:hover {
+	background-color: #169b45;
+}
