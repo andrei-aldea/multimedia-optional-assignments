@@ -1,12 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script type="text/javascript" src="scripts/speech.js"></script>
-</head>
-<body>
-    <button id="guess">Guess the number</button>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Voice Guessing Game</title>
+		<link
+			href="styles/style.css"
+			rel="stylesheet"
+		/>
+		<script
+			type="text/javascript"
+			src="scripts/speech.js"
+		></script>
+	</head>
+	<body>
+		<div class="container">
+			<!-- Header -->
+			<header>
+				<h1>🎙️ Voice Number Guessing</h1>
+				<div class="score-board">
+					<span>Wins: <b id="statWins">0</b></span>
+					<span>Best: <b id="statBest">-</b></span>
+				</div>
+			</header>
+
+			<!-- Main Game Area -->
+			<main>
+				<div class="game-status">
+					<div class="message-box">
+						<h2 id="feedbackMsg">Press Mic to Start</h2>
+						<p id="hintMsg">Range: 0 - 100</p>
+					</div>
+
+					<div class="canvas-wrapper">
+						<canvas
+							id="rangeCanvas"
+							width="600"
+							height="80"
+						></canvas>
+					</div>
+
+					<div class="current-guess">
+						<span id="lastGuess">-</span>
+					</div>
+				</div>
+
+				<!-- Controls -->
+				<div class="controls-area">
+					<button
+						id="btnMic"
+						class="mic-btn"
+					>
+						🎤 Speak
+					</button>
+					<button
+						id="btnGiveUp"
+						class="secondary-btn"
+					>
+						🏳️ Give Up
+					</button>
+
+					<div class="toggles">
+						<label>
+							<input
+								type="checkbox"
+								id="chkContinuous"
+							/>
+							Continuous Mode
+						</label>
+					</div>
+				</div>
+			</main>
+
+			<!-- Sidebar / Settings -->
+			<aside class="settings-panel">
+				<h3>Settings</h3>
+
+				<div class="setting-group">
+					<label>Difficulty</label>
+					<select id="selDifficulty">
+						<option value="easy">Easy (0-50)</option>
+						<option
+							value="medium"
+							selected
+						>
+							Medium (0-100)
+						</option>
+						<option value="hard">Hard (0-1000)</option>
+					</select>
+				</div>
+
+				<div class="setting-group">
+					<label>Language</label>
+					<select id="selLang">
+						<option value="en-US">English (US)</option>
+						<option value="en-GB">English (UK)</option>
+						<option value="es-ES">Spanish</option>
+						<option value="fr-FR">French</option>
+						<option value="de-DE">German</option>
+					</select>
+				</div>
+
+				<div class="setting-group">
+					<label>Voice</label>
+					<select id="selVoice"></select>
+				</div>
+
+				<div class="setting-group">
+					<label>Speech Rate: <span id="valRate">1.0</span></label>
+					<input
+						type="range"
+						id="rngRate"
+						min="0.5"
+						max="2"
+						step="0.1"
+						value="1"
+					/>
+				</div>
+
+				<div class="setting-group">
+					<label>Pitch: <span id="valPitch">1.0</span></label>
+					<input
+						type="range"
+						id="rngPitch"
+						min="0"
+						max="2"
+						step="0.1"
+						value="1"
+					/>
+				</div>
+
+				<hr />
+
+				<h3>History</h3>
+				<ul id="guessHistory"></ul>
+			</aside>
+		</div>
+	</body>
 </html>
