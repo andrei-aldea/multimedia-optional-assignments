@@ -1,100 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        #keyboard {
-            background-color: #333;
-            border: 1px solid black;
-            padding: 200px 20px 30px 20px;
-        }
-        #keypad {
-            background-color: red;
-            display: flex;
-        }
-        .whiteKey {
-            height: 240px;
-            width: 40px;
-            background-color: white;
-            border: 1px solid black;
-        }
-        .blackKey {
-            height: 140px;
-            width: 24px;
-            background-color: black;
-            border: 1px solid black;
-            margin: 0 -13px;
-            z-index: 2;
-        }
-    </style>
-</head>
-<body>
-    <div id="keyboard">
-        <div id="keypad">            
-            <div class="whiteKey"></div>
-            <div class="blackKey"></div>
-            <div class="whiteKey"></div>
-            <div class="blackKey"></div>
-            <div class="whiteKey"></div>            
-            <div class="whiteKey"></div>
-            <div class="blackKey"></div>
-            <div class="whiteKey"></div>
-            <div class="blackKey"></div>
-            <div class="whiteKey"></div>
-            <div class="blackKey"></div>            
-            <div class="whiteKey"></div>
-            <div class="whiteKey"></div>
-            <div class="blackKey"></div>
-            <div class="whiteKey"></div>
-            <div class="blackKey"></div>
-            <div class="whiteKey"></div>            
-            <div class="whiteKey"></div>
-            <div class="blackKey"></div>
-            <div class="whiteKey"></div>
-            <div class="blackKey"></div>
-            <div class="whiteKey"></div>
-            <div class="blackKey"></div>            
-            <div class="whiteKey"></div>
-            <div class="whiteKey"></div>
-            <div class="blackKey"></div>
-            <div class="whiteKey"></div>
-            <div class="blackKey"></div>
-            <div class="whiteKey"></div>            
-            <div class="whiteKey"></div>
-            <div class="blackKey"></div>
-            <div class="whiteKey"></div>
-            <div class="blackKey"></div>
-            <div class="whiteKey"></div>
-            <div class="blackKey"></div>            
-            <div class="whiteKey"></div>
-            <div class="whiteKey"></div>
-            <div class="blackKey"></div>
-            <div class="whiteKey"></div>
-            <div class="blackKey"></div>
-            <div class="whiteKey"></div>            
-            <div class="whiteKey"></div>
-            <div class="blackKey"></div>
-            <div class="whiteKey"></div>
-            <div class="blackKey"></div>
-            <div class="whiteKey"></div>
-            <div class="blackKey"></div>            
-            <div class="whiteKey"></div>
-            <div class="whiteKey"></div>
-            <div class="blackKey"></div>
-            <div class="whiteKey"></div>
-            <div class="blackKey"></div>
-            <div class="whiteKey"></div>            
-            <div class="whiteKey"></div>
-            <div class="blackKey"></div>
-            <div class="whiteKey"></div>
-            <div class="blackKey"></div>
-            <div class="whiteKey"></div>
-            <div class="blackKey"></div>            
-            <div class="whiteKey"></div>                       
-            <div class="whiteKey"></div>
-        </div>
-    </div>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Piano Keyboard</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				width: 100vw;
+				height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-color: #222;
+			}
+			#keyboard {
+				background-color: #333;
+				border: 1px solid #111;
+				padding: 40px 20px 20px 20px;
+				width: 90vw;
+				border-radius: 15px;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+				box-sizing: border-box;
+			}
+			#keypad {
+				background-color: #1a1a1a;
+				display: flex;
+				width: 100%;
+				border-radius: 4px;
+				position: relative;
+			}
+			.whiteKey {
+				height: 240px;
+				flex: 1;
+				background-color: white;
+				border: 1px solid #999;
+				border-radius: 0 0 5px 5px;
+				position: relative;
+				z-index: 1;
+				display: flex;
+				align-items: flex-end;
+				justify-content: center;
+				padding-bottom: 10px;
+				font-family: sans-serif;
+				font-size: 10px;
+				color: #333;
+				box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.1);
+				transition: all 0.1s ease;
+			}
+			.blackKey {
+				height: 140px;
+				width: 1.6%;
+				margin: 0 -0.8%;
+				background-color: black;
+				border: 1px solid #000;
+				border-radius: 0 0 3px 3px;
+				z-index: 2;
+				display: flex;
+				align-items: flex-end;
+				justify-content: center;
+				padding-bottom: 10px;
+				font-family: sans-serif;
+				font-size: 9px;
+				color: white;
+				box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+				transition: all 0.1s ease;
+			}
+			.whiteKey:hover {
+				background-color: #f0f0f0;
+				box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.2);
+			}
+			.blackKey:hover {
+				background-color: #333;
+				box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="keyboard">
+			<div id="keypad">
+				<!-- Octave 1 -->
+				<div class="whiteKey">C</div>
+				<div class="blackKey">C#</div>
+				<div class="whiteKey">D</div>
+				<div class="blackKey">Eb</div>
+				<div class="whiteKey">E</div>
+				<div class="whiteKey">F</div>
+				<div class="blackKey">F#</div>
+				<div class="whiteKey">G</div>
+				<div class="blackKey">G#</div>
+				<div class="whiteKey">A</div>
+				<div class="blackKey">Bb</div>
+				<div class="whiteKey">B</div>
+
+				<!-- Octave 2 -->
+				<div class="whiteKey">C</div>
+				<div class="blackKey">C#</div>
+				<div class="whiteKey">D</div>
+				<div class="blackKey">Eb</div>
+				<div class="whiteKey">E</div>
+				<div class="whiteKey">F</div>
+				<div class="blackKey">F#</div>
+				<div class="whiteKey">G</div>
+				<div class="blackKey">G#</div>
+				<div class="whiteKey">A</div>
+				<div class="blackKey">Bb</div>
+				<div class="whiteKey">B</div>
+
+				<!-- Octave 3 -->
+				<div class="whiteKey">C</div>
+				<div class="blackKey">C#</div>
+				<div class="whiteKey">D</div>
+				<div class="blackKey">Eb</div>
+				<div class="whiteKey">E</div>
+				<div class="whiteKey">F</div>
+				<div class="blackKey">F#</div>
+				<div class="whiteKey">G</div>
+				<div class="blackKey">G#</div>
+				<div class="whiteKey">A</div>
+				<div class="blackKey">Bb</div>
+				<div class="whiteKey">B</div>
+
+				<!-- Octave 4 -->
+				<div class="whiteKey">C</div>
+				<div class="blackKey">C#</div>
+				<div class="whiteKey">D</div>
+				<div class="blackKey">Eb</div>
+				<div class="whiteKey">E</div>
+				<div class="whiteKey">F</div>
+				<div class="blackKey">F#</div>
+				<div class="whiteKey">G</div>
+				<div class="blackKey">G#</div>
+				<div class="whiteKey">A</div>
+				<div class="blackKey">Bb</div>
+				<div class="whiteKey">B</div>
+
+				<!-- Octave 5 -->
+				<div class="whiteKey">C</div>
+				<div class="blackKey">C#</div>
+				<div class="whiteKey">D</div>
+				<div class="blackKey">Eb</div>
+				<div class="whiteKey">E</div>
+				<div class="whiteKey">F</div>
+				<div class="blackKey">F#</div>
+				<div class="whiteKey">G</div>
+				<div class="blackKey">G#</div>
+				<div class="whiteKey">A</div>
+				<div class="blackKey">Bb</div>
+				<div class="whiteKey">B</div>
+
+				<!-- Last Key -->
+				<div class="whiteKey">C</div>
+			</div>
+		</div>
+	</body>
 </html>
