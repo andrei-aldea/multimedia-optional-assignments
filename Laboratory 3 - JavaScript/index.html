@@ -1,18 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Wordle Game</title>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="styles/style.css"
+		/>
+		<script
+			type="text/javascript"
+			src="scripts/wordle.js"
+		></script>
+	</head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="styles/style.css" />
-    <script type="text/javascript" src="scripts/wordle.js"></script>
-</head>
+	<body>
+		<div class="game-container">
+			<header>
+				<h1>WORDLE</h1>
+			</header>
 
-<body>
-    <div id="board"></div>
-    <input type="text" id="guessInput" />
-    <button type="button" id="guessButton">Guess</button>
-</body>
+			<div
+				id="stats"
+				class="stats-container"
+			>
+				<div class="stat-box">
+					<span id="gamesPlayed">0</span>
+					<span class="label">Played</span>
+				</div>
+				<div class="stat-box">
+					<span id="winPercentage">0</span>
+					<span class="label">Win %</span>
+				</div>
+				<div class="stat-box">
+					<span id="currentStreak">0</span>
+					<span class="label">Streak</span>
+				</div>
+			</div>
 
+			<div id="board"></div>
+
+			<div class="input-area">
+				<input
+					type="text"
+					id="guessInput"
+					maxlength="5"
+					placeholder="Enter 5 letter word"
+				/>
+				<div class="button-group">
+					<button
+						type="button"
+						id="guessButton"
+					>
+						GUESS
+					</button>
+					<button
+						type="button"
+						id="newGameButton"
+						class="hidden"
+					>
+						NEW GAME
+					</button>
+				</div>
+			</div>
+
+			<div id="message-container"></div>
+		</div>
+	</body>
 </html>

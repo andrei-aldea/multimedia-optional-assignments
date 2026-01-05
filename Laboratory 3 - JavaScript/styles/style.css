@@ -1,25 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Clear+Sans:wght@700&display=swap');
+
+body {
+	background-color: #121213;
+	color: white;
+	font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.game-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	max-width: 500px;
+	width: 100%;
+}
+
+header {
+	border-bottom: 1px solid #3a3a3c;
+	margin-bottom: 20px;
+	width: 100%;
+	text-align: center;
+}
+
+h1 {
+	margin: 10px 0;
+	letter-spacing: 2px;
+}
+
+.row {
+	display: flex;
+	gap: 5px;
+	margin-bottom: 5px;
+}
+
 .cell {
-    width: 50px;
-    height: 50px;
-    border: 1px solid #777;
-    border-radius: 5px;
-    background-color: #bbb;
-    font-size: 40px;
-    padding: 4px;
-    text-transform: uppercase;
-    text-align: center;
-    display: inline-block;
-    margin: 2px;
+	width: 62px;
+	height: 62px;
+	border: 2px solid #3a3a3c;
+	border-radius: 4px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 32px;
+	font-weight: bold;
+	text-transform: uppercase;
+	box-sizing: border-box;
+	transition: transform 0.6s, background-color 0.2s, border-color 0.2s;
+	user-select: none;
 }
 
-.green {
-    background-color: lightgreen;
+/* Color Classes */
+.cell.green {
+	background-color: #538d4e;
+	border-color: #538d4e;
 }
 
-.yellow {
-    background-color: lightyellow;
+.cell.yellow {
+	background-color: #b59f3b;
+	border-color: #b59f3b;
 }
 
-.red {
-    background-color: lightcoral;
+.cell.red {
+	/* Using grey for 'absent' as is standard in Wordle, though spec said red. I will stick to spec requests if specific, but 'red' is harsh. Spec said red/yellow/green. I will make red darker for better UI */
+	background-color: #3a3a3c;
+	border-color: #3a3a3c;
+}
+
+/* Animations */
+.cell.pop {
+	animation: pop 0.1s;
+}
+
+@keyframes pop {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.1);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+.cell.flip {
+	animation: flip 0.6s ease forwards;
+}
+
+@keyframes flip {
+	0% {
+		transform: rotateX(0);
+	}
+	50% {
+		transform: rotateX(90deg);
+	}
+	100% {
+		transform: rotateX(0);
+	}
+}
+
+/* Input Area */
+.input-area {
+	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 15px;
+	width: 100%;
+}
+
+input[type='text'] {
+	padding: 15px;
+	font-size: 18px;
+	border: 2px solid #565758;
+	background-color: transparent;
+	color: white;
+	border-radius: 4px;
+	text-transform: uppercase;
+	text-align: center;
+	letter-spacing: 2px;
+	width: 200px;
+}
+
+input[type='text']:focus {
+	outline: none;
+	border-color: #818384;
+}
+
+.button-group {
+	display: flex;
+	gap: 10px;
+}
+
+button {
+	padding: 12px 24px;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+	background-color: #818384;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	transition: background-color 0.2s;
+}
+
+button:hover {
+	background-color: #565758;
+}
+
+button.hidden {
+	display: none;
+}
+
+/* Stats */
+.stats-container {
+	display: flex;
+	gap: 20px;
+	margin-bottom: 20px;
+}
+
+.stat-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.stat-box span {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.stat-box .label {
+	font-size: 10px;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+
+#message-container {
+	margin-top: 20px;
+	height: 30px;
+	font-weight: bold;
+}
+
+/* Override spec Red to a nice dark grey/red tone if preferred, keeping .red class */
+.cell.red {
+	background-color: #3a3a3c;
+	border-color: #3a3a3c;
+}
+/* Re-reading spec: "red": Letter doesn't exist in the word. 
+   I should probably follow the prompt literally for 'red', but standard Wordle uses grey. 
+   I will use a dark reddish grey to satisfy both aesthetics and the prompt's intent of "red" logic. */
+.cell.red {
+	background-color: #7b2c2c; /* A muted red */
+	border-color: #7b2c2c;
 }
